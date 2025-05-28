@@ -574,5 +574,10 @@
         document.getElementById('addRecipeContent').classList.remove('show');
     </script>
     <script src="script.js"></script>
+    <script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
 </body>
 </html>
