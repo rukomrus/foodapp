@@ -157,7 +157,7 @@ async function loadIngredientsFile() {
     try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000); // Тайм-аут 5 секунд
-        const response = await fetch('/ingredients.xlsx', { signal: controller.signal });
+        const response = await fetch('ingredients.xlsx', { signal: controller.signal });
         clearTimeout(timeoutId);
         if (!response.ok) {
             throw new Error('Файл ingredients.xlsx не найден или недоступен');
@@ -184,7 +184,7 @@ async function loadRecipesFile() {
     try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000); // Тайм-аут 5 секунд
-        const response = await fetch('/recipes.xlsx', { signal: controller.signal });
+        const response = await fetch('recipes.xlsx', { signal: controller.signal });
         clearTimeout(timeoutId);
         if (!response.ok) {
             console.warn('Файл recipes.xlsx не найден, пропускаем...');
