@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Моя Визитка</title>
+  <style>
+    /* Общие стили */
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #0e0e0e;
+      color: #ffffff;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1, h2 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    header {
+      text-align: center;
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+    }
+
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* Стили для формы "Отправить бриф" */
+    .brief-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-wrapper input[type="text"] {
+      width: 100%;
+      padding: 1rem 2rem;
+      padding-right: 5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      background-color: #1a1a1a;
+      color: white;
+      outline: none;
+    }
+
+    .input-wrapper button {
+      position: absolute;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .input-wrapper button:hover {
+      opacity: 0.7;
+    }
+
+    /* Фоновая надпись */
+    .background-text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30vw;
+      font-weight: 800;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+      z-index: 1;
+      white-space: nowrap;
+      font-family: 'Helvetica Neue', sans-serif;
+      user-select: none;
+    }
+
+    /* Анимация дыхания фона */
+    @keyframes breathe {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.92; }
+    }
+
+    .bg-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 50% 140%, rgba(255, 70, 30, 0.18), transparent 70%),
+        linear-gradient(to top,
+          rgba(255, 90, 50, 0.12),
+          rgba(255, 160, 60, 0.1),
+          rgba(255, 210, 90, 0.06),
+          rgba(20, 20, 20, 0.2) 60%,
+          #0e0e0e);
+      animation: breathe 6s ease-in-out infinite;
+    }
+
+    /* Блок "Обо мне" с обводкой */
+    #about {
+      position: relative;
+      padding: 4rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.01);
+      z-index: 2;
+    }
+
+    /* Звёздный фон для блока "Обо мне" */
+    .stars-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  width: 0.8px;
+  height: 0.8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.2);
+  opacity: 0.6;
+  animation: twinkle 4s infinite ease-in-out, drift 60s linear infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-5px, 5px);
+  }
+}
+
+    /* Мобильная адаптация */
+    @media (max-width: 768px) {
+      header {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+      }
+
+      .container {
+        padding: 1.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      .input-wrapper input[type="text"] {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+      }
+
+      .background-text {
+        font-size: 36vw;
+        -webkit-text-stroke: 0.8px rgba(255, 255, 255, 0.07);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Фон с анимацией -->
+  <div class="bg-glow"></div>
+
+  <!-- Фоновая надпись -->
+  <div class="background-text">folio</div>
+
+  <header>
+    <h1>Иван Петров</h1>
+    <p>Разработчик | Дизайнер | Предприниматель</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Обо мне -->
+    <section id="about">
+      <div class="stars-bg" id="stars-container"></div>
+      <h2>Обо мне</h2>
+      <p>Привет! Меня зовут Иван, я фронтенд-разработчик и дизайнер из Москвы. Уже более 5 лет создаю удобные и красивые веб-интерфейсы. Мои навыки включают вёрстку, JavaScript, React, а также UX/UI проектирование.</p>
+      <p>Люблю решать сложные задачи и находить нестандартные решения. Стремлюсь к постоянному обучению и развитию как профессионал.</p>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact">
+      <h2>Связаться со мной</h2>
+      <p>Вы можете написать мне по любым вопросам, связанным с работой, проектами или сотрудничеством:</p>
+      <ul>
+        <li>Email: <a href="mailto:ivan@example.com">ivan@example.com</a></li>
+        <li>Telegram: <a href="https://t.me/ivan_petrov ">@ivan_petrov</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/ivanpetrov ">ivanpetrov</a></li>
+      </ul>
+    </section>
+
+    <!-- Форма отправки брифа -->
+    <section id="brief">
+      <h2>Отправить бриф</h2>
+      <div class="brief-section">
+        <div class="input-wrapper">
+          <input type="text" placeholder="Здесь можно загрузить файл или написать о чем-то..." disabled />
+          <button title="Отправить">➤</button>
+        </div>
+        <p style="font-size: 0.9rem; color: #aaa;">Форма пока недоступна, но скоро заработает!</p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Иван Петров. Все права защищены.
+  </footer>
+
+    <!-- ... остальной HTML ... -->
+
+  <footer>
+    &copy; 2025 Иван Петров. Все права защищены.
+  </footer>
+
+  <!-- JS для создания звёзд -->
+  <script>
+    const container = document.getElementById('stars-container');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 4 + 's';
+      container.appendChild(star);
+    }
+  </script>
+
+</body>
+</html>
+
+</body>
+</html>
