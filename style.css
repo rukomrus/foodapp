@@ -47,7 +47,9 @@ button {
 button:hover {
     transform: none;
     border-color: #5B21B6;
-    box-shadow: 0 0 10px rgba(124, 58, 237, 0.4), 0 0 20px rgba(124, 58, 237, 0.2);
+    box-shadow:
+        0 0 10px rgba(124, 58, 237, 0.4),
+        0 0 20px rgba(124, 58, 237, 0.2);
 }
 
 button i {
@@ -62,8 +64,9 @@ button.primary {
 
 button.primary:hover {
     background: linear-gradient(135deg, #21c483, #28a745);
-    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3),
-                0 0 10px rgba(124, 58, 237, 0.3);
+    box-shadow:
+        0 4px 12px rgba(40, 167, 69, 0.3),
+        0 0 10px rgba(124, 58, 237, 0.3);
 }
 
 button.secondary {
@@ -88,6 +91,20 @@ button.danger:hover {
     background-color: #fee2e2;
     border-color: #ef4444;
     box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+/* === Заголовок блока добавления рецепта === */
+.collapsible-header.secondary {
+    background-color: transparent;
+    border: 2px solid #7C3AED;
+    color: #1f2937;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+}
+
+.collapsible-header.secondary:hover {
+    box-shadow:
+        0 0 10px rgba(124, 58, 237, 0.4),
+        0 0 20px rgba(124, 58, 237, 0.2);
 }
 
 /* === Ингредиенты === */
@@ -146,6 +163,7 @@ button.danger:hover {
 
 .new-ingredient-section {
     display: none;
+    margin-top: 10px;
 }
 
 .new-ingredient-section.show {
@@ -180,6 +198,10 @@ button.danger:hover {
     font-size: 18px;
     font-weight: bold;
     word-wrap: break-word;
+}
+
+.recipe h3:hover {
+    color: #1e7e34;
 }
 
 .recipe .delete-icon {
@@ -230,10 +252,6 @@ button.danger:hover {
     color: white;
 }
 
-.tag-топ { background-color: #28a745; }
-.tag-доработать { background-color: #ffc107; }
-.tag-любовь-по-жизни { background-color: #dc3545; }
-
 .delete-btn {
     background-color: #dc3545;
     color: white;
@@ -245,6 +263,10 @@ button.danger:hover {
 
 .delete-btn:hover {
     background-color: #c82333;
+}
+
+#recipesList {
+    display: none;
 }
 
 /* === Тёмная тема === */
@@ -336,6 +358,14 @@ button.danger:hover {
     color: #218838;
 }
 
+.dark-theme .header-icon i {
+    color: #218838;
+}
+
+.dark-theme .header-icon i:hover {
+    color: #1e7e34;
+}
+
 .collapsible-header {
     display: flex;
     justify-content: space-between;
@@ -411,15 +441,4 @@ button.danger:hover {
         max-height: 70vh;
         padding: 15px;
     }
-
-    .collapsible-header.secondary {
-    background-color: transparent;
-    border: 2px solid #7C3AED;
-    color: #1f2937;
-    box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
-}
-
-.collapsible-header.secondary:hover {
-    box-shadow: 0 0 10px rgba(124, 58, 237, 0.4), 0 0 20px rgba(124, 58, 237, 0.2);
-}
 }

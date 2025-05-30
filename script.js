@@ -999,9 +999,13 @@ function toggleTheme() {
 function toggleAddRecipe() {
     try {
         const content = document.getElementById('addRecipeContent');
-        const header = document.querySelector('.collapsible-header');
+        const header = document.querySelector('.collapsible-header.secondary');
         content.classList.toggle('show');
-        header.innerHTML = `<span>Добавить рецепт</span> <i class="fas fa-${content.classList.contains('show') ? 'minus' : 'plus'}"></i>`;
+        const isVisible = content.classList.contains('show');
+        header.innerHTML = `
+            <span>Добавить рецепт</span>
+            <i class="fas fa-${isVisible ? 'minus' : 'plus'}"></i>
+        `;
     } catch (error) {
         console.error('Ошибка при переключении блока "Добавить рецепт":', error);
         alert('Ошибка при переключении блока "Добавить рецепт": ' + error.message);

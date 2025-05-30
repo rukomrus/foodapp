@@ -22,8 +22,8 @@
     <button onclick="toggleTheme()"><i class="fas fa-moon"></i> Тёмная тема</button><br><br>
 
     <div class="collapsible-header secondary" onclick="toggleAddRecipe()">
-    <span>Добавить рецепт</span>
-    <i class="fas fa-plus"></i>
+        <span>Добавить рецепт</span>
+        <i class="fas fa-plus"></i>
     </div>
 
     <div id="addRecipeContent" class="collapsible-content">
@@ -137,7 +137,7 @@
             localStorage.setItem('firstVisit', 'true');
         }
 
-        // Сворачиваемый блок "Добавить рецепт"
+        // Блок "Добавить рецепт" свёрнут по умолчанию
         document.getElementById('addRecipeContent').classList.remove('show');
     </script>
     <script src="script.js"></script>
