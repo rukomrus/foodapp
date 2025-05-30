@@ -999,16 +999,25 @@ function toggleTheme() {
 function toggleAddRecipe() {
     try {
         const content = document.getElementById('addRecipeContent');
-        const header = document.querySelector('.collapsible-header.secondary');
+        const header = document.querySelector('.collapsible-header');
+
+        if (!content || !header) {
+            console.error('Не найдены элементы для переключения блока "Добавить рецепт"');
+            return;
+        }
+
+        // Переключаем класс show
         content.classList.toggle('show');
-        const isVisible = content.classList.contains('show');
+
+        // Меняем иконку
+        const icon = content.classList.contains('show') ? 'fa-minus' : 'fa-plus';
         header.innerHTML = `
             <span>Добавить рецепт</span>
-            <i class="fas fa-${isVisible ? 'minus' : 'plus'}"></i>
+            <i class="fas ${icon}"></i>
         `;
     } catch (error) {
         console.error('Ошибка при переключении блока "Добавить рецепт":', error);
-        alert('Ошибка при переключении блока "Добавить рецепт": ' + error.message);
+        alert('Ошибка при открытии/закрытии формы: ' + error.message);
     }
 }
 
