@@ -13,18 +13,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header-icon">
-        <i class="fas fa-utensil-spoon"></i>
-        <i class="fas fa-plate-wheat"></i>
-        <i class="fas fa-utensil-fork"></i>
-    </div>
-    <div id="loadingMessage">Загрузка данных...</div>
-    <button onclick="toggleTheme()"><i class="fas fa-moon"></i> Тёмная тема</button><br><br>
 
-    <div class="collapsible-header secondary" onclick="toggleAddRecipe()">
-        <span>Добавить рецепт</span>
-        <i class="fas fa-plus"></i>
-    </div>
+<div class="header-icon">
+    <i class="fas fa-utensil-spoon"></i>
+    <i class="fas fa-plate-wheat"></i>
+    <i class="fas fa-utensil-fork"></i>
+</div>
+
+<div id="loadingMessage">Загрузка данных...</div>
+<button onclick="toggleTheme()"><i class="fas fa-moon"></i> Тёмная тема</button><br><br>
+
+<!-- === Блок "Добавить рецепт" === -->
+<div class="collapsible-header secondary" onclick="toggleAddRecipe()">
+    <span>Добавить рецепт</span>
+    <i class="fas fa-plus"></i>
+</div>
 
     <div id="addRecipeContent" class="collapsible-content">
         <label>Категория рецепта:</label>

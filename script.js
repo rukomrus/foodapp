@@ -1002,7 +1002,7 @@ function toggleAddRecipe() {
         const header = document.querySelector('.collapsible-header');
 
         if (!content || !header) {
-            console.error('Не найдены элементы для переключения блока "Добавить рецепт"');
+            console.error('Элементы для переключения блока "Добавить рецепт" не найдены!');
             return;
         }
 
@@ -1010,10 +1010,10 @@ function toggleAddRecipe() {
         content.classList.toggle('show');
 
         // Меняем иконку
-        const icon = content.classList.contains('show') ? 'fa-minus' : 'fa-plus';
+        const iconClass = content.classList.contains('show') ? 'fa-minus' : 'fa-plus';
         header.innerHTML = `
             <span>Добавить рецепт</span>
-            <i class="fas ${icon}"></i>
+            <i class="fas ${iconClass}"></i>
         `;
     } catch (error) {
         console.error('Ошибка при переключении блока "Добавить рецепт":', error);
