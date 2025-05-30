@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    
-    <!-- Подключение внешнего CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,19 +20,20 @@
     </div>
     <div id="loadingMessage">Загрузка данных...</div>
     <button onclick="toggleTheme()"><i class="fas fa-moon"></i> Тёмная тема</button><br><br>
+
     <div class="collapsible-header" onclick="toggleAddRecipe()">
         <span>Добавить рецепт</span>
         <i class="fas fa-plus"></i>
     </div>
+
     <div id="addRecipeContent" class="collapsible-content">
         <label>Категория рецепта:</label>
         <select id="recipeCategory" onchange="updateRecipeList()">
             <option value="">Все категории</option>
-            <!-- Категории добавляются динамически -->
         </select>
         <input type="text" id="newCategory" placeholder="Новая категория">
-        <button onclick="addCategory()"><i class="fas fa-plus"></i> Добавить категорию</button>
-        <button onclick="deleteCategory()"><i class="fas fa-trash"></i> Удалить категорию</button>
+        <button class="secondary" onclick="addCategory()"><i class="fas fa-plus"></i> Добавить категорию</button>
+        <button class="danger" onclick="deleteCategory()"><i class="fas fa-trash"></i> Удалить категорию</button>
         <label>Метка рецепта:</label>
         <select id="recipeTag">
             <option value="">Без метки</option>
@@ -43,58 +42,71 @@
             <option value="Любовь по жизни">Любовь по жизни</option>
         </select>
         <input type="text" id="newTag" placeholder="Новая метка">
-        <button onclick="addTag()"><i class="fas fa-plus"></i> Добавить метку</button>
-        <button onclick="deleteTag()"><i class="fas fa-trash"></i> Удалить метку</button><br><br>
+        <button class="secondary" onclick="addTag()"><i class="fas fa-plus"></i> Добавить метку</button>
+        <button class="danger" onclick="deleteTag()"><i class="fas fa-trash"></i> Удалить метку</button><br><br>
         <label>Наименование рецепта:</label>
         <input type="text" id="recipeName" placeholder="Введите название рецепта"><br>
         <label>Инструкции приготовления:</label>
-        <textarea id="recipeInstructions" placeholder="Введите инструкции приготовления, например: 1. Смешать муку. 2. Выпекать." rows="6"></textarea><br><br>
+        <textarea id="recipeInstructions" placeholder="Введите инструкции приготовления" rows="6"></textarea><br><br>
         <div id="ingredientsList"></div>
-        <button id="addIngredientBtn" onclick="addIngredient()"><i class="fas fa-plus"></i> Добавить ингредиент</button><br>
+        <button id="addIngredientBtn" onclick="addIngredient()" class="secondary">
+            <i class="fas fa-plus"></i> Добавить ингредиент
+        </button><br>
         <div id="newIngredientSection" class="new-ingredient-section">
             <label>Новый ингредиент:</label>
             <input type="text" id="newIngredientName" placeholder="Введите новый ингредиент">
             <select id="newIngredientUnit">
                 <option value="">Выберите единицу</option>
-                <!-- Единицы добавляются динамически -->
             </select>
-            <button onclick="saveNewIngredient()">Сохранить новый ингредиент</button>
+            <button onclick="saveNewIngredient()" class="primary">
+                <i class="fas fa-check"></i> Сохранить новый ингредиент
+            </button>
         </div>
-        <button id="saveRecipeBtn" onclick="saveRecipe()"><i class="fas fa-check"></i> Сохранить рецепт</button><br>
+        <button id="saveRecipeBtn" onclick="saveRecipe()" class="primary">
+            <i class="fas fa-check"></i> Сохранить рецепт
+        </button><br>
     </div><br>
+
     <div id="editRecipeModal">
         <div id="editRecipeContent">
             <span class="close-modal" onclick="closeEditModal()">×</span>
             <label>Категория рецепта:</label>
             <select id="editRecipeCategory">
                 <option value="">Все категории</option>
-                <!-- Категории добавляются динамически -->
             </select>
             <label>Метка рецепта:</label>
             <select id="editRecipeTag">
                 <option value="">Без метки</option>
-                <!-- Метки добавляются динамически -->
             </select>
             <label>Наименование рецепта:</label>
             <input type="text" id="editRecipeName" placeholder="Введите название рецепта"><br>
             <label>Инструкции приготовления:</label>
             <textarea id="editRecipeInstructions" placeholder="Введите инструкции приготовления" rows="6"></textarea><br><br>
             <div id="editIngredientsList"></div>
-            <button id="addEditIngredientBtn" onclick="addEditIngredient()"><i class="fas fa-plus"></i> Добавить ингредиент</button><br>
-            <button id="saveEditRecipeBtn" onclick="saveEditRecipe()"><i class="fas fa-check"></i> Сохранить изменения</button>
+            <button id="addEditIngredientBtn" onclick="addEditIngredient()" class="secondary">
+                <i class="fas fa-plus"></i> Добавить ингредиент
+            </button><br>
+            <button id="saveEditRecipeBtn" onclick="saveEditRecipe()" class="primary">
+                <i class="fas fa-check"></i> Сохранить изменения
+            </button>
         </div>
     </div>
-    <button onclick="saveRecipesToExcel()"><i class="fas fa-download"></i> Сохранить рецепты в Excel</button><br>
-    <button onclick="toggleRecipes()"><i class="fas fa-eye"></i> Показать/Скрыть рецепты</button><br>
-    <button onclick="clearRecipes()"><i class="fas fa-trash-alt"></i> Очистить все рецепты</button><br>
+
+    <button onclick="saveRecipesToExcel()" class="secondary">
+        <i class="fas fa-download"></i> Сохранить рецепты в Excel
+    </button><br>
+    <button onclick="toggleRecipes()" class="secondary">
+        <i class="fas fa-eye"></i> Показать/Скрыть рецепты
+    </button><br>
+    <button onclick="clearRecipes()" class="danger">
+        <i class="fas fa-trash-alt"></i> Очистить все рецепты
+    </button><br>
     <input type="text" id="searchRecipes" placeholder="Поиск по названию"><br>
     <select id="recipeCategoryFilter" onchange="updateRecipeList()">
         <option value="">Все категории</option>
-        <!-- Категории добавляются динамически -->
     </select><br>
     <select id="recipeTagFilter" onchange="updateRecipeList()">
         <option value="">Все метки</option>
-        <!-- Метки добавляются динамически -->
     </select><br>
     <select id="sortRecipes" onchange="updateRecipeList()">
         <option value="category-asc">По категории (A-Z)</option>
@@ -103,29 +115,29 @@
         <option value="name-desc">По названию (Z-A)</option>
     </select><br>
     <div id="recipesList"></div>
+
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('Service Worker зарегистрирован:', registration);
-                    })
-                    .catch(error => {
-                        console.error('Ошибка регистрации Service Worker:', error);
-                    });
+                    .then(registration => console.log('Service Worker зарегистрирован:', registration))
+                    .catch(error => console.error('Ошибка регистрации Service Worker:', error));
             });
         }
+
         // Загрузка темы
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-theme');
             document.querySelector('button[onclick="toggleTheme()"]').innerHTML = '<i class="fas fa-sun"></i> Светлая тема';
         }
+
         // Подсказка для новичков
         if (!localStorage.getItem('firstVisit')) {
-            alert('Добро пожаловать! Ингредиенты и рецепты загружаются автоматически из ingredients.xlsx и recipes.xlsx. Добавляйте новые рецепты с категориями и метками. Используйте поиск, сортировку и фильтры. ВАЖНО: Данные хранятся в памяти. Чтобы не потерять изменения, сохраните их в файл recipes.xlsx кнопкой "Сохранить рецепты в Excel"!');
+            alert('Добро пожаловать! Ингредиенты и рецепты загружаются автоматически из ingredients.xlsx и recipes.xlsx. Добавляйте новые рецепты с категориями и метками. Используйте поиск, сортировку и фильтры.');
             localStorage.setItem('firstVisit', 'true');
         }
-        // Сворачиваемый блок "Добавить рецепт" по умолчанию
+
+        // Сворачиваемый блок "Добавить рецепт"
         document.getElementById('addRecipeContent').classList.remove('show');
     </script>
     <script src="script.js"></script>
