@@ -21,8 +21,8 @@ textarea {
     font-size: 14px;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    transition: all 0.3s ease-in-out;
     background-color: transparent;
+    transition: all 0.3s ease-in-out;
 }
 
 textarea {
@@ -34,18 +34,23 @@ button {
     font-size: 0.85rem;
     padding: 6px 12px;
     border-radius: 12px;
-    border: 2px solid #e5e7eb;
+    border: 2px solid #7C3AED; /* Сиреневая обводка */
     background-color: transparent;
     color: #1f2937;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
 }
 
 button:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-color: #d1d5db;
+    transform: none;
+    border-color: #5B21B6;
+}
+
+button i {
+    margin-right: 4px;
 }
 
 button.primary {
@@ -81,8 +86,38 @@ button.danger:hover {
     border-color: #ef4444;
 }
 
-button i {
-    margin-right: 4px;
+/* === Эффект мерцания (Shimmer) === */
+
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        rgba(124, 58, 237, 0.2) 0%,
+        rgba(124, 58, 237, 0.4) 50%,
+        rgba(124, 58, 237, 0.2) 100%
+    );
+    transform: rotate(25deg);
+    animation: shimmer 2s infinite linear;
+    pointer-events: none;
+    opacity: 0;
+}
+
+button:hover::after {
+    opacity: 1;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) rotate(25deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(25deg);
+    }
 }
 
 /* === Ингредиенты === */
@@ -120,7 +155,7 @@ button i {
 
 .ingredient-content {
     margin-left: 30px;
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -410,7 +445,6 @@ button i {
     padding: 10px;
     border-radius: 12px;
     cursor: pointer;
-    margin-bottom: 10px;
 }
 
 .collapsible-header:hover {
