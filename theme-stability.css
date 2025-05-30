@@ -1,0 +1,82 @@
+.dark-theme {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+.dark-theme .recipe {
+    background-color: rgba(30, 30, 30, 0.8);
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    color: #f5f5f5;
+}
+
+.dark-theme input,
+.dark-theme select,
+.dark-theme textarea {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    border: 1px solid #333;
+}
+
+.dark-theme button {
+    background-color: #7d5fff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.dark-theme button:hover {
+    background-color: #9b7dff;
+}
+
+.dark-theme .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.dark-theme .delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.dark-theme .delete-icon {
+    color: #e74c3c;
+}
+
+.dark-theme .delete-icon:hover {
+    color: #c0392b;
+}
+
+.dark-theme .edit-btn {
+    background-color: #6c5ce7;
+}
+
+.dark-theme .edit-btn:hover {
+    background-color: #5a4bd6;
+}
+
+.dark-theme .ingredient {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+}
+
+.dark-theme .ingredient:hover {
+    background-color: #2a2a2a;
+}
+
+.dark-theme .drag-handle {
+    color: #7d5fff;
+}
+
+.dark-theme .header-icon i {
+    color: #7d5fff;
+}
+
+.dark-theme .header-icon i:hover {
+    color: #9b7dff;
+}
+
+.dark-theme #editRecipeContent {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
