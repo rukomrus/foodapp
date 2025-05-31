@@ -489,7 +489,7 @@
         <i class="fas fa-utensil-fork"></i>
     </div>
     <div id="loadingMessage">Загрузка данных...</div>
-    <button onclick="toggleTheme()"><i class="fas fa-moon"></i> Тёмная тема</button><br><br>
+    <button onclick="toggleTheme()"><i class="fas fa-moon"></i>  тема</button><br><br>
 
     <div class="collapsible-header" onclick="toggleAddRecipe()">
         <span>Добавить рецепт</span>
@@ -592,7 +592,7 @@
         // Загрузка темы
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-theme');
-            document.querySelector('button[onclick="toggleTheme()"]').innerHTML = '<i class="fas fa-sun"></i> Светлая тема';
+            document.querySelector('button[onclick="toggleTheme()"]').innerHTML = '<i class="fas fa-sun"></i>  тема';
         }
         // Подсказка для новичков
         if (!localStorage.getItem('firstVisit')) {
