@@ -987,9 +987,10 @@ function toggleTheme() {
     try {
         const isDark = document.body.classList.toggle('dark-theme');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        document.querySelector('button[onclick="toggleTheme()"]').innerHTML = isDark
-            ? '<i class="fas fa-sun"></i> Светлая тема'
-            : '<i class="fas fa-moon"></i> Тёмная тема';
+        const icon = document.querySelector('#themeToggleBtn i');
+        if (icon) {
+            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        }
     } catch (error) {
         console.error('Ошибка при переключении темы:', error);
         alert('Ошибка при переключении темы: ' + error.message);
