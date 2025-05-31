@@ -29,6 +29,46 @@ header {
     font-size: 24px;
 }
 
+/* === Главное меню === */
+.main-menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item {
+    background-color: #007bff; /* Наш основной цвет */
+    color: white;
+    border-radius: 15px;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item:hover {
+    background-color: #0056b3;
+}
+
+.menu-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.menu-item span {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
 #themeToggleBtn {
     position: fixed;
     top: 10px;
