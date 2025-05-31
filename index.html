@@ -556,10 +556,8 @@
         </div>
     </div>
 
-    <button onclick="saveRecipesToExcel()"><i class="fas fa-download"></i> Сохранить рецепты в Excel</button><br>
     <button onclick="toggleRecipes()"><i class="fas fa-eye"></i> Показать/Скрыть рецепты</button><br>
-    <button onclick="clearRecipes()"><i class="fas fa-trash-alt"></i> Очистить все рецепты</button><br>
-    <input type="text" id="searchRecipes" placeholder="Поиск по названию"><br>
+        <input type="text" id="searchRecipes" placeholder="Поиск по названию"><br>
     <select id="recipeCategoryFilter" onchange="updateRecipeList()">
         <option value="">Все категории</option>
         <!-- Категории добавляются динамически -->
@@ -574,6 +572,13 @@
         <option value="name-asc">По названию (A-Z)</option>
         <option value="name-desc">По названию (Z-A)</option>
     </select><br>
+
+    <!-- Перенесённые кнопки -->
+<div class="bottom-buttons">
+    <button onclick="saveRecipesToExcel()"><i class="fas fa-download"></i> Сохранить рецепты в Excel</button><br>
+    <button onclick="clearRecipes()"><i class="fas fa-trash-alt"></i> Очистить все рецепты</button><br>
+</div>
+
     <div id="recipesList"></div>
 
     <script>
