@@ -768,17 +768,11 @@ function toggleRecipes() {
         if (recipesList.style.display === 'none' || !recipesList.style.display) {
             updateRecipeList();
             recipesList.style.display = 'block';
-            // Изменяем текст и иконку кнопки
-            const toggleButton = document.querySelector('.main-menu .menu-item[onclick="toggleRecipes()"]');
-            toggleButton.querySelector('.menu-icon').innerHTML = '<i class="fas fa-eye-slash"></i>';
-            toggleButton.querySelector('span').textContent = 'Скрыть рецепты';
+            document.querySelector('button[onclick="toggleRecipes()"]').innerHTML = '<i class="fas fa-eye-slash"></i> Скрыть рецепты';
         } else {
             recipesList.style.display = 'none';
             recipesList.innerHTML = '';
-            // Возвращаем исходное состояние кнопки
-            const toggleButton = document.querySelector('.main-menu .menu-item[onclick="toggleRecipes()"]');
-            toggleButton.querySelector('.menu-icon').innerHTML = '<i class="fas fa-eye"></i>';
-            toggleButton.querySelector('span').textContent = 'Показать/Скрыть';
+            document.querySelector('button[onclick="toggleRecipes()"]').innerHTML = '<i class="fas fa-eye"></i> Показать/Скрыть рецепты';
         }
     } catch (error) {
         console.error('Ошибка при переключении рецептов:', error);
